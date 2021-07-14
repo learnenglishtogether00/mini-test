@@ -12,6 +12,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./css/audio.css" />
     <style>
       a {
         text-decoration: none;
@@ -28,24 +29,85 @@
         <div class="col-12">
           <span class="fs-3"> Listening Test </span>
           <a href="./mode.html" id="homeLink">Chọn Chế Độ</a>
+
         </div>
       </div>
       <div class="row">
         <div class="col-3">
-          <span class="fw-bold fs-6"> Part 1 </span>
-          <iframe id="part1audioFrame" height="100" width="100%"></iframe>
+          <div id="audio-player-container-1" class="audio-player-container">
+            <audio id="part1audioFrame" preload="metadata" loop></audio>
+            <p class="label">Part 1</p>
+            <button id="play-icon-1" class="play-icon"></button>
+            <span id="current-time-1" class="time">0:00</span>
+            <input type="range" id="seek-slider-1" max="100" value="0" />
+            <span id="duration-1" class="time">0:00</span>
+            <output id="volume-output-1">100</output>
+            <input
+              type="range"
+              id="volume-slider-1"
+              class="volume-slider"
+              max="100"
+              value="100"
+            />
+            <button id="mute-icon-1" class="mute-icon"></button>
+          </div>
         </div>
         <div class="col-3">
-          <span class="fw-bold fs-6"> Part 2 </span>
-          <iframe id="part2audioFrame" height="100" width="100%"></iframe>
+          <div id="audio-player-container-2" class="audio-player-container">
+            <audio id="part2audioFrame" preload="metadata" loop></audio>
+            <p class="label">Part 2</p>
+            <button id="play-icon-2" class="play-icon"></button>
+            <span id="current-time-2" class="time">0:00</span>
+            <input type="range" id="seek-slider-2" max="100" value="0" />
+            <span id="duration-2" class="time">0:00</span>
+            <output id="volume-output-2">100</output>
+            <input
+              type="range"
+              id="volume-slider-2"
+              class="volume-slider"
+              max="100"
+              value="100"
+            />
+            <button id="mute-icon-2" class="mute-icon"></button>
+          </div>
         </div>
         <div class="col-3">
-          <span class="fw-bold fs-6"> Part 3 </span>
-          <iframe id="part3audioFrame" height="100" width="100%"></iframe>
+          <div id="audio-player-container-3" class="audio-player-container">
+            <audio id="part3audioFrame" preload="metadata" loop></audio>
+            <p class="label">Part 3</p>
+            <button id="play-icon-3" class="play-icon"></button>
+            <span id="current-time-3" class="time">0:00</span>
+            <input type="range" id="seek-slider-3" max="100" value="0" />
+            <span id="duration-3" class="time">0:00</span>
+            <output id="volume-output-3">100</output>
+            <input
+              type="range"
+              id="volume-slider-3"
+              class="volume-slider"
+              max="100"
+              value="100"
+            />
+            <button id="mute-icon-3" class="mute-icon"></button>
+          </div>
         </div>
         <div class="col-3">
-          <span class="fw-bold fs-6"> Part 4 </span>
-          <iframe id="part4audioFrame" height="100" width="100%"></iframe>
+          <div id="audio-player-container-4" class="audio-player-container">
+            <audio id="part4audioFrame" preload="metadata" loop></audio>
+            <p class="label">Part 4</p>
+            <button id="play-icon-4" class="play-icon"></button>
+            <span id="current-time-4" class="time">0:00</span>
+            <input type="range" id="seek-slider-4" max="100" value="0" />
+            <span id="duration-4" class="time">0:00</span>
+            <output id="volume-output-4">100</output>
+            <input
+              type="range"
+              id="volume-slider-4"
+              class="volume-slider"
+              max="100"
+              value="100"
+            />
+            <button id="mute-icon-4" class="mute-icon"></button>
+          </div>
         </div>
       </div>
       <div class="row mt-2">
@@ -84,6 +146,9 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/listening-test.js"></script>
+    <script src="./js/lib/lottie.js"></script>
+    <script src="./js/listening-test/app.js"></script>
+    <script src="./js/listening-test/audio.js"></script>
+  </body>
   </body>
 </html>
