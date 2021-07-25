@@ -5,7 +5,7 @@ function fetchData() {
 async function main() {
   const res = await fetchData();
   const data = await res.json();
-  const documents = data.documents;
+  const documents = formatDocumentsData(data.documents);
 
   const curDocId = localStorage.getItem("curDoc");
   const curDoc = documents.find((item) => item.id === curDocId);
@@ -20,3 +20,16 @@ function renderData(doc) {
 }
 
 main();
+
+function formatDocumentsData(documents) {
+  return documents.map((document) => {
+    return {
+      ...document,
+      url: formatPdfURL(document.url),
+    };
+  });
+}
+
+function formatPdfURL(pdfURL) {
+  return pdfURL.replace("/view?usp", "/preview?usp");
+}

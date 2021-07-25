@@ -1,26 +1,3 @@
-function fetchData() {
-  return fetch("./data.json");
-}
-
-async function main() {
-  const res = await fetchData();
-  const data = await res.json();
-  const exams = formatExamsData(data.exams);
-
-  const curTest = localStorage.getItem("curTest");
-  const curExam = exams.find((item) => item.id === curTest);
-
-  renderData(curExam);
-}
-
-function renderData(exam) {
-  const testNameEle = document.getElementById("testName");
-
-  testNameEle.innerHTML = exam.name;
-}
-
-main();
-
 function formatExamsData(exams) {
   const FILTER_PDF_EXAM_KEYS = ["docURL", "answerKeyURL", "transcriptURL"];
   const FORM_KEY = "formURL";
@@ -39,6 +16,15 @@ function formatExamsData(exams) {
     }
 
     return formattedExam;
+  });
+}
+
+function formatDocumentsData(documents) {
+  return documents.map((document) => {
+    return {
+      ...document,
+      url: formatPdfURL(document.url),
+    };
   });
 }
 
