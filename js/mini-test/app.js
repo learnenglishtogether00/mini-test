@@ -6,6 +6,7 @@ async function main() {
   const res = await fetchData();
   const data = await res.json();
   const exams = formatExamsData(data.exams);
+  // console.log({ exams });
 
   const curTest = localStorage.getItem("curTest");
   const curExam = exams.find((item) => item.id === curTest);
@@ -34,11 +35,11 @@ function formatExamsData(exams) {
 
     for (const key in exam) {
       if (FILTER_PDF_EXAM_KEYS.includes(key)) {
-        formatExamsData[key] = formatPdfURL(exam[key]);
+        formattedExam[key] = formatPdfURL(exam[key]);
       }
 
       if (key === FORM_KEY) {
-        formatExamsData[FORM_KEY] = formatFormURL(exam[FORM_KEY]);
+        formattedExam[FORM_KEY] = formatFormURL(exam[FORM_KEY]);
       }
     }
 
